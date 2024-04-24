@@ -14,6 +14,13 @@ fn main() -> anyhow::Result<()> {
 
             process_csv(&opts.input, output, opts.format)?
         }
+        SubCommand::GenPass(opts) => rcli::process_genpass(
+            opts.length,
+            opts.uppercase,
+            opts.lowercase,
+            opts.number,
+            opts.symbol,
+        )?,
     }
     Ok(())
 }
